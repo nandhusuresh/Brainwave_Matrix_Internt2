@@ -1,0 +1,4 @@
+Filename,Detection Method,Details,File Size (Bytes)
+eicar.com,YARA,['SUSP_Just_EICAR'],69
+python,None,No malware detected,988
+generate_test_files.py,None,No malware detected,988

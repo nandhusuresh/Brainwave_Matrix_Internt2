@@ -1,0 +1,1 @@
+2024-11-29 07:29:38.437212: random.exe - YARA detected: ['SEH_Save', 'SEH_Init', 'anti_dbg']
