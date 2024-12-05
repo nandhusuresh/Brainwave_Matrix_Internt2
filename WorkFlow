@@ -1,0 +1,103 @@
+Installation Workflow for the M=FIGHTER Malware Scanner Tool
+1. Clone the Repository
+
+To install and start using the M=FIGHTER Malware Scanner Tool, begin by cloning the GitHub repository to your local machine.
+Clone the Repository:
+
+Open your terminal and run the following command:
+
+git clone https://github.com/nandhusuresh/Brainwave_Matrix_Internt2.git
+
+This will create a copy of the repository on your machine. Navigate to the project directory:
+
+cd Brainwave_Matrix_Internt2
+
+2. Install Dependencies
+
+Your tool requires several Python libraries to run. These can be installed via pip.
+Step-by-Step Installation of Dependencies:
+
+    Make sure you have Python 3.x installed:
+        To check, run:
+
+    python --version
+
+    If not installed, download and install Python 3.x from here.
+
+Create and activate a virtual environment (optional but recommended to keep your environment clean):
+
+    On Linux/macOS:
+
+python3 -m venv venv
+source venv/bin/activate
+
+On Windows:
+
+    python -m venv venv
+    .\venv\Scripts\activate
+
+Install required libraries:
+
+    Run this command to install all dependencies:
+
+pip install -r requirements.txt
+
+If the requirements.txt file is not available, manually install dependencies by running:
+
+        pip install requests yara pyfiglet python-dotenv tqdm matplotlib
+
+3. Setup Environment Variables
+
+The VirusTotal API key is required for scanning files against VirusTotal.
+
+    Get your VirusTotal API key:
+        Go to VirusTotal and sign up for an account.
+        Once logged in, generate your API key from your account settings.
+
+    Create a .env file:
+        In the root directory of the project, create a file called .env.
+        Add your VirusTotal API key to the .env file:
+
+        VIRUSTOTAL_API_KEY=your_virustotal_api_key
+
+4. Add YARA Rules
+
+The tool uses YARA rules for scanning files. You need to add or modify the YARA rule files to the directory where the tool expects them.
+
+    Download or create YARA rules.
+
+    Place the rules in the specified directory:
+
+    YARA_RULES_DIR = "/root/malware_scanner/yara_rules/signature-base/yara/"
+
+    You can find YARA rules from various sources, or you can write your own custom rules.
+
+5. Running the Malware Scanner Tool
+
+Once all dependencies and configurations are set, you are ready to run the tool.
+
+    Run the tool using the following command:
+
+    python3 M=FIGHTER.py
+
+    The tool will display a banner and load the YARA rules.
+
+    You will be prompted to enter the file path for scanning, or simply press Enter to scan the entire samples/ directory by default.
+
+    The tool will scan the files using:
+        YARA rules: For pattern matching against known malware signatures.
+        VirusTotal API: For checking if the file hash matches known malware.
+
+    After scanning, the tool will:
+        Display the results (whether malware was detected).
+        Save a summary of the scan results in a scan_summary.csv file.
+
+    You can check the scan results by opening the scan_summary.csv file.
+
+6. (Optional) Customizing the Scan
+
+You can customize:
+
+    Scan directory: Provide a custom path for scanning files when prompted.
+    YARA rules: Add or modify the YARA rules to detect more types of malware.
+    VirusTotal API Key: If your key expires, you can replace it in the .env file.
